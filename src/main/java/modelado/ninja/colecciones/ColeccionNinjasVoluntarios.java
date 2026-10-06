@@ -12,7 +12,7 @@ import modelado.ninja.producto.Ninja;
  * decirnos si está vacía o el tamaño de la colección. Así mismo, tendrá un iterador
  * el cuál nos ayudará para iterar sobre los elementos.
  */
-public class ColeccionNInjasVoluntarios implements ColeccionNinjas{
+public class ColeccionNinjasVoluntarios implements ColeccionNinjas{
 
     /*La colección en arreglo. */
     private Ninja[] ninjas;
@@ -20,7 +20,7 @@ public class ColeccionNInjasVoluntarios implements ColeccionNinjas{
     /*El identificador del i-esimo elemento. */
     private int i;
 
-    public ColeccionNInjasVoluntarios(int n){
+    public ColeccionNinjasVoluntarios(int n){
         this.ninjas = new Ninja[n];
         i = 0;
     }
@@ -55,6 +55,11 @@ public class ColeccionNInjasVoluntarios implements ColeccionNinjas{
     @Override
     public int getTamano() {
         return i;
+    }
+
+    @Override public void limpia(){
+        Ninja[] nuevoNinjas = new Ninja[i];
+        ninjas = nuevoNinjas;
     }
 
     @Override

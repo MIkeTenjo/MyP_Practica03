@@ -12,13 +12,11 @@
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <!-- Flag moderno de compilación para OpenJDK 27 -->
     <maven.compiler.release>26</maven.compiler.release>
     <junit.jupiter.version>5.11.0</junit.jupiter.version>
   </properties>
 
   <dependencies>
-    <!-- JUnit 5 (Jupiter) -->
     <dependency>
       <groupId>org.junit.jupiter</groupId>
       <artifactId>junit-jupiter</artifactId>
@@ -28,6 +26,22 @@
   </dependencies>
 
   <build>
+    <!-- Configuración activa de los plugins -->
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-jar-plugin</artifactId>
+        <version>3.4.2</version>
+        <configuration>
+          <archive>
+            <manifest>
+              <mainClass>modelado.App</mainClass>
+            </manifest>
+          </archive>
+        </configuration>
+      </plugin>
+    </plugins>
+
     <pluginManagement>
       <plugins>
         <plugin>

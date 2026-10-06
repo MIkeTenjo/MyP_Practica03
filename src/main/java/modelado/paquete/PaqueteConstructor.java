@@ -7,7 +7,7 @@ package modelado.paquete;
  * necesarias al paquete, reiniciar sus valores para cada paquete nuevo
  * que se creará y entregar el paquete producido.
  */
-public interface PaqueteBuilder {
+public interface PaqueteConstructor {
 
     /**
      * Reinicia los valores del paquete vacío.

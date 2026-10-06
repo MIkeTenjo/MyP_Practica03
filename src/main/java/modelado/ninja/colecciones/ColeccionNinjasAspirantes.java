@@ -4,6 +4,7 @@ import java.util.Hashtable;
 import java.util.Iterator;
 
 import modelado.ninja.producto.Ninja;
+import modelado.iterador.IteradorNinjasAspirantes;;
 
 /**
  * Clase que representa la colección de elementos {@link NInjaAspirante}.
@@ -42,9 +43,13 @@ public class ColeccionNinjasAspirantes implements  ColeccionNinjas{
         return ninjas.size();
     }
 
+    @Override public void limpia(){
+        ninjas.clear();
+    }
+
     @Override
     public Iterator<Ninja> iterator() {
-        throw new UnsupportedOperationException("Not supported yet.");
+        return new IteradorNinjasAspirantes(ninjas);
     }
 
     

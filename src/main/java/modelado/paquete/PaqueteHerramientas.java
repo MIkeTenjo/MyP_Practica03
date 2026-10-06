@@ -102,12 +102,19 @@ public class PaqueteHerramientas {
      * Calcula el peso total de las herramientas sumadas del paquete.
      * @return EL peso total del paquete.
      */
-    public double calcularPesoTotal() {
+    public int calcularPesoTotal() {
         int total = 0;
         for (Herramienta herramienta : herramientas) {
             total = total + herramienta.getPeso();
         }
         return total;
+    }
+
+    public String getResumen() {
+        return String.format(
+            "Paquete [Kunais: %d | Shurikens: %d | Papeles Bomba: %d | Bombas de Humo: %d | Botiquines: %d | Peso Total: %d g]",
+            numKunais, numShurikens, numPapelesBomba, numBombasDeHumo, numBotiquines, calcularPesoTotal()
+        );
     }
 
 }

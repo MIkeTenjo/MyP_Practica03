@@ -1,10 +1,10 @@
 package modelado.paquete;
 
-public final class PaqueteBuilderConcrete implements PaqueteBuilder{
+public final class PaqueteConstructorConcreto implements PaqueteConstructor{
 
     private PaqueteHerramientas paquete;
 
-    public PaqueteBuilderConcrete() {
+    public PaqueteConstructorConcreto() {
         this.reset();
     }
 

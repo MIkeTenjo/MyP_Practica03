@@ -44,6 +44,11 @@ public interface ColeccionNinjas extends Iterable<Ninja>{
      * que contiene la colección.
      */
     public int getTamano();
+
+    /**
+     * Limpia la colección para no tener elementos.
+     */
+    public void limpia();
     
     /**    (non-Javadoc)
      * Regresa un elemento {@link Iterator} de tipo {@link Ninja}.
