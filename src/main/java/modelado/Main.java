@@ -8,14 +8,15 @@ import java.util.List;
 import java.util.Random;
 import java.util.Scanner;
 import java.util.Set;
+
 import modelado.ninja.Fabrica.FabricaNinjaAspirante;
 import modelado.ninja.Fabrica.FabricaNinjaVoluntario;
-import modelado.ninja.colecciones.ColeccionNinjasVoluntarios;
 import modelado.ninja.colecciones.ColeccionNinjasAspirantes;
+import modelado.ninja.colecciones.ColeccionNinjasVoluntarios;
 import modelado.ninja.enumeraciones.Clan;
 import modelado.ninja.enumeraciones.RangoNinja;
-import modelado.ninja.producto.Ninja;
 import modelado.ninja.gruponinja.Grupo;
+import modelado.ninja.producto.Ninja;
 import modelado.ninja.producto.NinjaVoluntario;
 import modelado.paquete.EncargadoPaquetes;
 import modelado.paquete.PaqueteConstructor;
@@ -283,10 +284,7 @@ public class Main {
             System.out.println("Les instamos a continuar con su entrenamiento. Sus nombres tendrán la más alta");
             System.out.println("prioridad para la conformación de escuadrones en la próxima convocatoria.");
             System.out.println("════════════════════════════════════════════════════════════\n");
-        }
-
-        // 2. Avisos a los Voluntarios que se quedaron sin grupo
-        if (iteradorVoluntarios.hasNext()) {
+        }else if (iteradorVoluntarios.hasNext()) {
             int sobrantesVol = 0;
             System.out.println("\n════════════════════════════════════════════════════════════");
             System.out.println("       AVISO OFICIAL Y DISCULPA A LOS JEFES VOLUNTARIOS     ");
@@ -322,6 +320,7 @@ public class Main {
     private static PaqueteHerramientas elegirPaquete(Scanner scanner, int numeroGrupo, String nombreLider) {
         EncargadoPaquetes encargado = new EncargadoPaquetes();
         PaqueteConstructor paquete = new PaqueteConstructorConcreto();
+        PaqueteHerramientas resultado = new PaqueteHerramientas();
         boolean opcionValida = false;
 
         while (!opcionValida) {
@@ -337,19 +336,24 @@ public class Main {
             try {
                 System.out.print("Seleccione una opción (1-4): ");
                 int opcion = scanner.nextInt();
-
                 switch (opcion) {
                     case 1:
                         encargado.construirPaqueteBasico(paquete);
                         opcionValida = true;
+                        resultado = paquete.obtenerResultado();
+                        resultado.setTipoPaquete("Básico");
                         break;
                     case 2:
                         encargado.construirPaqueteAvanzado(paquete);
                         opcionValida = true;
+                        resultado = paquete.obtenerResultado();
+                        resultado.setTipoPaquete("Avanzado");
                         break;
                     case 3:
                         encargado.construirPaqueteTactico(paquete);
                         opcionValida = true;
+                        resultado = paquete.obtenerResultado();
+                        resultado.setTipoPaquete("Táctico");
                         break;
                     case 4:
                         System.out.println("\n[ Configuración de Paquete Personalizado ]");
@@ -361,6 +365,8 @@ public class Main {
 
                         encargado.construirPaquetePersonalizado(paquete, kunais, shurikens, papeles, bombas, botiquines);
                         opcionValida = true;
+                        resultado = paquete.obtenerResultado();
+                        resultado.setTipoPaquete("Personalizado");
                         break;
                     default:
                         System.out.println(" Opción fuera de rango. Por favor ingrese un número del 1 al 4.");
@@ -372,7 +378,7 @@ public class Main {
             }
         }
 
-        return paquete.obtenerResultado();
+        return resultado; // Retorna el paquete de herramientas construido según la elección del usuario
     }
 
     /**

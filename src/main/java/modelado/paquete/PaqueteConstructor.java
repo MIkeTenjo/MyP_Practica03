@@ -12,7 +12,7 @@ public interface PaqueteConstructor {
     /**
      * Reinicia los valores del paquete vacío.
      */
-    public void reset();
+    public void reiniciar();
 
     /**
      * Agrega una Herramienta Kunai tantas veces como la

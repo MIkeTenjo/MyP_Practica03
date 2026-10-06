@@ -2,7 +2,7 @@ package modelado.ninja.colecciones;
 
 import java.util.Iterator;
 
-import modelado.iterador.IteradorNinjasVoluntarios;
+import modelado.ninja.colecciones.iterador.IteradorNinjasVoluntarios;
 import modelado.ninja.producto.Ninja;
 
 /**

@@ -1,4 +1,4 @@
-package modelado.herramienta;
+package modelado.paquete.herramienta;
 
 /**
  * Clase que simula una herramienta Ninja.
@@ -7,10 +7,10 @@ package modelado.herramienta;
  */
 public class Herramienta {
 
-    private String nombre;
+    private final String nombre;
 
     /*Peso medido en gramos. */
-    private int peso;
+    private final int peso;
 
     /**
      * Constructor que inicializa una Herramienta con nombre y peso

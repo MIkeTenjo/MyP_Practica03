@@ -1,13 +1,18 @@
-package modelado.iterador;
+package modelado.ninja.colecciones.iterador;
 
 import java.util.Iterator;
 import java.util.NoSuchElementException;
 
 import modelado.ninja.producto.Ninja;
 
+/**
+ * Clase que implementa un iterador para recorrer una colección de Ninja voluntarios.
+ * IteradorNinjasVoluntarios implementa la interfaz Iterator<Ninja> y permite iterar sobre
+ * los objetos Ninja almacenados en un arreglo.
+ */
 public class IteradorNinjasVoluntarios implements Iterator<Ninja> {
 
-    private Ninja[] voluntarios;
+    private final Ninja[] voluntarios;
 
     private int posicion;
 

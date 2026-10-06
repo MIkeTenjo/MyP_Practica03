@@ -3,8 +3,8 @@ package modelado.ninja.colecciones;
 import java.util.Hashtable;
 import java.util.Iterator;
 
+import modelado.ninja.colecciones.iterador.IteradorNinjasAspirantes;
 import modelado.ninja.producto.Ninja;
-import modelado.iterador.IteradorNinjasAspirantes;;
 
 /**
  * Clase que representa la colección de elementos {@link NInjaAspirante}.
@@ -17,7 +17,7 @@ import modelado.iterador.IteradorNinjasAspirantes;;
 public class ColeccionNinjasAspirantes implements  ColeccionNinjas{
 
     /*La colección donde se guardaran los Ninjas. */
-    private Hashtable<Integer, Ninja> ninjas;
+    private final Hashtable<Integer, Ninja> ninjas;
 
     public ColeccionNinjasAspirantes(){
         this.ninjas = new Hashtable<>();

@@ -2,7 +2,7 @@ package modelado.paquete;
 
 import java.util.ArrayList;
 
-import modelado.herramienta.Herramienta;
+import modelado.paquete.herramienta.Herramienta;
 
 /**
  * Clase que simula el paquete de herramientas que llevarán los grupos de Ninjas en la selección
@@ -22,7 +22,9 @@ public class PaqueteHerramientas {
     
     private int numBotiquines;
 
-    private ArrayList<Herramienta> herramientas;
+    private String tipoPaquete;
+
+    private final ArrayList<Herramienta> herramientas;
 
     /**
      * Constructor por defecto.
@@ -34,6 +36,7 @@ public class PaqueteHerramientas {
         numPapelesBomba = 0;
         numBombasDeHumo = 0;
         numBotiquines = 0;
+        tipoPaquete = "Básico";
     }
 
     /**
@@ -110,10 +113,18 @@ public class PaqueteHerramientas {
         return total;
     }
 
+    public void setTipoPaquete(String tipoPaquete) {
+        this.tipoPaquete = tipoPaquete;
+    }
+
+    /**
+     * Devuelve un resumen del paquete con la cantidad de cada tipo de herramienta y su peso total.
+     * @return Una cadena con el resumen del paquete.
+     */
     public String getResumen() {
         return String.format(
-            "Paquete [Kunais: %d | Shurikens: %d | Papeles Bomba: %d | Bombas de Humo: %d | Botiquines: %d | Peso Total: %d g]",
-            numKunais, numShurikens, numPapelesBomba, numBombasDeHumo, numBotiquines, calcularPesoTotal()
+            "Paquete %s :\nKunais: %d\nShurikens: %d\nPapeles Bomba: %d\nBombas de Humo: %d\nBotiquines: %d\nPeso Total: %d g",
+            tipoPaquete, numKunais, numShurikens, numPapelesBomba, numBombasDeHumo, numBotiquines, calcularPesoTotal()
         );
     }
 
